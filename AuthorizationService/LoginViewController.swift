@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        guard let welcomeVC = segue.destination as? LoginViewController else { return }
         welcomeVC.nameWelcome = userNameTextField.text
     }
 
@@ -34,7 +34,9 @@ class LoginViewController: UIViewController {
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
                 preferredStyle: .alert)
-            let defaultAcrion = UIAlertAction(title: "OK", style: .cancel)
+            let defaultAcrion = UIAlertAction(title: "OK", style: .cancel) { _ in
+                self.userNameTextField.text = ""
+            }
             allertController.addAction(defaultAcrion)
             present(allertController, animated: true)
         } else if  passwordTextField.text != password {
@@ -42,15 +44,18 @@ class LoginViewController: UIViewController {
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
                 preferredStyle: .alert)
-            let defaultAcrion = UIAlertAction(title: "OK", style: .cancel)
+            let defaultAcrion = UIAlertAction(title: "OK", style: .cancel) { _ in
+                self.passwordTextField.text = ""
+            }
             allertController.addAction(defaultAcrion)
             present(allertController, animated: true)
         }
         
     }
     @IBAction func unwind(for segue: UIStoryboardSegue){
-        guard let welcomeVC = segue.source as? WelcomeViewController else { return }
-        userNameTextField.text = welcomeVC.welcomeLabel.text
+        guard let welcomeVC = segue.source as? LoginViewController else { return }
+        
+       welcomeVC.nameWelcome = userNameTextField.text
         
     }
     
@@ -69,6 +74,7 @@ class LoginViewController: UIViewController {
         
     }
 }
+
 
 extension LoginViewController {
     private func nameAlert(title: String, message: String){
