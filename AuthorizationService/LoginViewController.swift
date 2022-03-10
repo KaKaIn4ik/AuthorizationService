@@ -22,8 +22,9 @@ class LoginViewController: UIViewController {
     
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? LoginViewController else { return }
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.nameWelcome = userNameTextField.text
+        
     }
 
     @IBAction func logInButtonPressed() {
@@ -54,8 +55,10 @@ class LoginViewController: UIViewController {
     }
     @IBAction func unwind(for segue: UIStoryboardSegue){
         guard let welcomeVC = segue.source as? LoginViewController else { return }
+//        nameWelcome.text = welcomeVC.userNameTextField.text
         
-       welcomeVC.nameWelcome = userNameTextField.text
+    
+        
         
     }
     
