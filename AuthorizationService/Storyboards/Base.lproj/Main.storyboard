@@ -246,8 +246,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-9A-C7e">
-                                <rect key="frame" x="139" y="273.5" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-9A-C7e">
+                                <rect key="frame" x="139.5" y="274" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -262,12 +262,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="oKB-HH-wJp"/>
                     <connections>
-                        <outlet property="factsLabel" destination="bYo-9A-C7e" id="9Xd-y3-D75"/>
+                        <outlet property="factsLabel" destination="bYo-9A-C7e" id="L31-68-6tj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPb-KO-34A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4185" y="931"/>
+            <point key="canvasLocation" x="4185" y="930.63380281690138"/>
         </scene>
         <!--Item-->
         <scene sceneID="dUg-FC-f4R">
