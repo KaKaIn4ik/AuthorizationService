@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
     @IBAction func showAuthorizarionData(_ sender: UIButton) {
         sender.tag == 0
             ? showAlert(title: "Oops!", message: "Your name is \(user) 😉")
-            : showALert(title: "Oops!", message: "Your password is \(password) 😉 ")
+            : showAlert(title: "Oops!", message: "Your password is \(password) 😉 ")
     }
 
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
