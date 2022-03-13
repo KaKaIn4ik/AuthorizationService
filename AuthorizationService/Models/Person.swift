@@ -19,7 +19,7 @@ import Foundation
          Person(
             name: "Eduard",
             surname: "Kungurtsev",
-            facts: "govno",
+            facts: "I want to tell a lot, BUT my head no longer cooks, it seems to be working",
             age: "24",
             location: "Novosibirsk",
             studied: "NGTU"
