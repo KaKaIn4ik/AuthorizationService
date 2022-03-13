@@ -9,7 +9,7 @@ import UIKit
 
 class AboutViewController: UIViewController {
    
-    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var surnameLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
@@ -27,7 +27,7 @@ class AboutViewController: UIViewController {
 override func viewDidLoad() {
     super.viewDidLoad()
 
-    infoLabel.text = "My name is \(user)!"
+    nameLabel.text = "My name is \(user)!"
     surnameLabel.text = "My surname \(surname)!"
     ageLabel.text = "I am \(age) years old!"
     locationLabel.text = "I live in \(location) !"

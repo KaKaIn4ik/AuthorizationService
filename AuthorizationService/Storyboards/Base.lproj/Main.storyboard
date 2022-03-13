@@ -228,8 +228,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ageLabel" destination="yMO-mz-GKI" id="RXx-KG-z2Z"/>
-                        <outlet property="infoLabel" destination="qF3-Dv-t48" id="bWd-qN-37q"/>
                         <outlet property="locationLabel" destination="7UL-Ya-OgQ" id="HVa-8v-sbY"/>
+                        <outlet property="nameLabel" destination="qF3-Dv-t48" id="bWd-qN-37q"/>
                         <outlet property="studiedLabel" destination="nwJ-Qv-zOJ" id="qDz-Tf-Tgm"/>
                         <outlet property="surnameLabel" destination="8Gc-lw-A9O" id="E7B-72-IlD"/>
                     </connections>
@@ -238,10 +238,10 @@
             </objects>
             <point key="canvasLocation" x="3274" y="931"/>
         </scene>
-        <!--About View Controller-->
+        <!--End View Controller-->
         <scene sceneID="fnS-Uv-cPH">
             <objects>
-                <viewController id="v7M-36-exc" customClass="AboutViewController" customModule="AuthorizationService" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="v7M-36-exc" customClass="EndViewController" customModule="AuthorizationService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EAb-pa-xUB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
