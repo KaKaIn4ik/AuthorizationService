@@ -9,91 +9,71 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // MARK: - IB Outlets
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var forgetNameTextField: UIButton!
-    @IBOutlet var forgotPasswordTextField: UIButton!
     
-    var nameWelcome: String!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        userNameTextField.text = nameWelcome
+    // MARK: - Private properties
+    private let user = "User"
+    private let password = "Password"
 
-    
-    }
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.nameWelcome = userNameTextField.text
-        
-    }
-
-    @IBAction func logInButtonPressed() {
-        let user = "User"
-        let password = "password"
-        if userNameTextField.text != user  {
-            let allertController = UIAlertController(
-                title: "Invalid login or password",
-                message: "Please, enter correct login and password",
-                preferredStyle: .alert)
-            let defaultAcrion = UIAlertAction(title: "OK", style: .cancel) { _ in
-                self.userNameTextField.text = ""
-            }
-            allertController.addAction(defaultAcrion)
-            present(allertController, animated: true)
-        } else if  passwordTextField.text != password {
-            let allertController = UIAlertController(
-                title: "Invalid login or password",
-                message: "Please, enter correct login and password",
-                preferredStyle: .alert)
-            let defaultAcrion = UIAlertAction(title: "OK", style: .cancel) { _ in
-                self.passwordTextField.text = ""
-            }
-            allertController.addAction(defaultAcrion)
-            present(allertController, animated: true)
-        }
-        
-    }
-    @IBAction func unwind(for segue: UIStoryboardSegue){
-        guard let welcomeVC = segue.source as? LoginViewController else { return }
-//        nameWelcome.text = welcomeVC.userNameTextField.text
-        
-    
-        
-        
+        welcomeVC.user = user
     }
     
-    @IBAction func forgetUserNameButton() {
-        guard let inputNameText = forgetNameTextField.textInputContextIdentifier, !inputNameText.isEmpty else {
-            nameAlert(title: "Oops", message: "Your name is User!")
+    // MARK: IBActions
+    @IBAction func logInButtonPressed(){
+        guard userNameTextField.text == user, passwordTextField.text == password else {
+            showAlert(
+                title: "Invalid login or password",
+                message: "Please, enter correct login and password",
+                textField: passwordTextField
+            )
             return
         }
+        performSegue(withIdentifier: "openWelcomeVC", sender: nil)
+    }
+    
+    @IBAction func showAuthorizarionData(_ sender: UIButton) {
+        sender.tag == 0
+            ? showAlert(title: "Oops!", message: "Your name is \(user) 😉")
+            : showALert(title: "Oops!", message: "Your password is \(password) 😉 ")
     }
 
-    @IBAction func forgotPasswordButton() {
-        guard let inputPasswordText = forgotPasswordTextField.textInputContextIdentifier, !inputPasswordText.isEmpty else {
-            nameAlert(title: "Oops", message: "Your password is password")
-            return
-        }
-        
+    @IBAction func unwindSegue(segue: UIStoryboardSegue){
+        userNameTextField.text = ""
+        passwordTextField.text = ""
     }
 }
 
-
+// MARK: - Alert Controller
 extension LoginViewController {
-    private func nameAlert(title: String, message: String){
+    private func showAlert (title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = ""
+        }
         alert.addAction(okAction)
         present(alert, animated: true)
     }
 }
-extension LoginViewController {
-    private func passwordAlert(title: String, message: String){
-        let alertTwo = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okActionTwo = UIAlertAction(title: "OK", style: .default)
-        
-        alertTwo.addAction(okActionTwo)
-        present(alertTwo, animated: true)
+
+// MARK: - Keyboard
+extension LoginViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    
+}
+
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField == userNameTextField {
+        passwordTextField.becomeFirstResponder()
+    } else {
+            logInButtonPressed()
+    }
+    return true
     }
 }
