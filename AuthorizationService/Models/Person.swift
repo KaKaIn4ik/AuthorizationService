@@ -10,7 +10,7 @@ import Foundation
  struct Person {
     let name: String
     let surname: String
-    let photo: String
+    let facts: String
     let age: String
     let location: String
     let studied: String
@@ -19,7 +19,7 @@ import Foundation
          Person(
             name: "Eduard",
             surname: "Kungurtsev",
-            photo: "photo",
+            facts: "govno",
             age: "24",
             location: "Novosibirsk",
             studied: "NGTU"

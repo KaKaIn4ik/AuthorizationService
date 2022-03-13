@@ -25,7 +25,10 @@ class LoginViewController: UIViewController {
             }  else if let navigationVC = tabBarVC as? UINavigationController {
                 let aboutUserVC = navigationVC.topViewController as! AboutViewController
                 aboutUserVC.user = nameOutput.person.name
-                
+                aboutUserVC.surname = nameOutput.person.surname
+                aboutUserVC.age = nameOutput.person.age
+                aboutUserVC.location = nameOutput.person.location
+                aboutUserVC.studied = nameOutput.person.studied
             }
             
         }
