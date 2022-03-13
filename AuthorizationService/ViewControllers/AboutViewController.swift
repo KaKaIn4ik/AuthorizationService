@@ -14,7 +14,6 @@ class AboutViewController: UIViewController {
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var studiedLabel: UILabel!
-    @IBOutlet var factsLabel: UILabel!
     
     let nameOutput =  User.getUser()
     var user = ""
@@ -22,7 +21,6 @@ class AboutViewController: UIViewController {
     var age = ""
     var location = ""
     var studied = ""
-    var facts = ""
 
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,11 +30,12 @@ override func viewDidLoad() {
     ageLabel.text = "I am \(age) years old!"
     locationLabel.text = "I live in \(location) !"
     studiedLabel.text = "I studied in \(studied)!"
+    
 
 }
 
 override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-    guard let aboutVC = segue.destination as? AboutViewController else { return }
+    guard let aboutVC = segue.destination as? EndViewController else { return }
     aboutVC.facts = nameOutput.person.facts
 }
 }
