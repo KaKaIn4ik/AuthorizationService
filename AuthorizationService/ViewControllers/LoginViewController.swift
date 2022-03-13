@@ -14,18 +14,27 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     // MARK: - Private properties
-    private let user = "User"
-    private let password = "Password"
+    let nameOutput =  User.getUser()
 
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.user = user
+        let tabBarController = segue.destination as! UITabBarController
+        for tabBarVC in tabBarController.viewControllers ?? [] {
+            if let welcomeVC = tabBarVC as? WelcomeViewController {
+                welcomeVC.user = nameOutput.person.name + " " + nameOutput.person.surname
+            }  else if let navigationVC = tabBarVC as? UINavigationController {
+                let aboutUserVC = navigationVC.topViewController as! AboutViewController
+                aboutUserVC.user = nameOutput.person.name
+                
+            }
+            
+        }
+
     }
     
     // MARK: IBActions
     @IBAction func logInButtonPressed(){
-        guard userNameTextField.text == user, passwordTextField.text == password else {
+        guard userNameTextField.text == nameOutput.user, passwordTextField.text == nameOutput.password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
@@ -38,8 +47,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func showAuthorizarionData(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(title: "Oops!", message: "Your name is \(user) 😉")
-            : showAlert(title: "Oops!", message: "Your password is \(password) 😉 ")
+            ? showAlert(title: "Oops!", message: "Your name is \(nameOutput.user) 😉")
+            : showAlert(title: "Oops!", message: "Your password is \(nameOutput.password) 😉 ")
     }
 
     @IBAction func unwindSegue(segue: UIStoryboardSegue){
