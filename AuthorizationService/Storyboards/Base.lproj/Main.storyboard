@@ -247,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-9A-C7e">
-                                <rect key="frame" x="139.5" y="274" width="41.5" height="20.5"/>
+                                <rect key="frame" x="20" y="274" width="280" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -256,8 +256,9 @@
                         <viewLayoutGuide key="safeArea" id="WrG-BO-Kmq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bYo-9A-C7e" firstAttribute="centerY" secondItem="EAb-pa-xUB" secondAttribute="centerY" id="FgR-oT-6a3"/>
-                            <constraint firstItem="bYo-9A-C7e" firstAttribute="centerX" secondItem="EAb-pa-xUB" secondAttribute="centerX" id="UuU-L5-XNd"/>
+                            <constraint firstItem="bYo-9A-C7e" firstAttribute="leading" secondItem="WrG-BO-Kmq" secondAttribute="leading" constant="20" id="PK6-SS-sFz"/>
+                            <constraint firstItem="WrG-BO-Kmq" firstAttribute="trailing" secondItem="bYo-9A-C7e" secondAttribute="trailing" constant="20" id="Wcu-Xl-8Gt"/>
+                            <constraint firstItem="bYo-9A-C7e" firstAttribute="centerY" secondItem="EAb-pa-xUB" secondAttribute="centerY" id="hgr-pj-iSe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oKB-HH-wJp"/>
