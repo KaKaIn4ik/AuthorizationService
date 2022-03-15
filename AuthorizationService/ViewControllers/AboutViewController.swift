@@ -15,27 +15,24 @@ class AboutViewController: UIViewController {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var studiedLabel: UILabel!
     
-    let nameOutput =  User.getUser()
-    var user = ""
-    var surname = ""
-    var age = ""
-    var location = ""
-    var studied = ""
+    var user: User!
 
-override func viewDidLoad() {
-    super.viewDidLoad()
 
-    nameLabel.text = "My name is \(user)!"
-    surnameLabel.text = "My surname \(surname)!"
-    ageLabel.text = "I am \(age) years old!"
-    locationLabel.text = "I live in \(location) !"
-    studiedLabel.text = "I studied in \(studied)!"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = user.person.fullName
+
+        nameLabel.text = "My name is \(user.person.name)!"
+        surnameLabel.text = "My surname \(user.person.surname)!"
+        ageLabel.text = "I am \(user.person.age) years old!"
+        locationLabel.text = "I live in \(user.person.location) !"
+        studiedLabel.text = "I studied in \(user.person.studied)!"
+        
+        
+    }
     
-
-}
-
-override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-    guard let aboutVC = segue.destination as? EndViewController else { return }
-    aboutVC.facts = nameOutput.person.facts
-}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        guard let aboutVC = segue.destination as? EndViewController else { return }
+        aboutVC.user = user
+    }
 }

@@ -10,12 +10,12 @@ import UIKit
 class EndViewController: UIViewController {
     @IBOutlet var factsLabel: UILabel!
     
-    var facts = ""
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        factsLabel.text = " \(facts)!"
+        factsLabel.text = " \(user.person.facts)!"
         
 
     }
